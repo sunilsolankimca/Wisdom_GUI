@@ -1,0 +1,35 @@
+﻿<div class="card" style="background: rgba(0,0,0,0.8); opacity: 1; height: 100vh; color: white; font-family: 'Roboto', sans-serif;">
+    <div style="padding-bottom: 10px; padding-left: 15vw;">
+        <img alt="GLO" src="../../assets/logo-gl.png">
+      </div>
+    <h3 class="card-header" style="text-align: center;">WISDOM</h3>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <a routerLink="../register" class="btn btn-primary btn-block mt-10" style="background-color: #f37038; border-radius: 0px; border: 0px;">Sign in with Globallogic/Method Email Account</a>
+            </div><br>
+            <hr style="border-top: 2px solid white;"><br>
+            <p class="sub-heading mb-20">Use your GlobalLogic / Windows credential to login</p>
+            <div class="form-group">
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Enter your email as username"/>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Username is required</div>
+                    <div *ngIf="f.email.errors.email">Username must be a valid email address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter your password"/>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary btn-block mt-10" style="background-color: #f37038; border-radius: 0px; border: 0px;">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+                <a routerLink="../forgot" class="btn btn-link" style="float: right;">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</div>

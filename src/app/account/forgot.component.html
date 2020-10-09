@@ -1,0 +1,21 @@
+<div class="card" style="background: rgba(0,0,0,0.8); opacity: 1; height: 100vh; color: white; font-family: 'Roboto', sans-serif;">
+    <div style="padding-bottom: 10px; padding-left: 15vw;">
+        <img alt="GLO" src="../../assets/logo-gl.png">
+      </div>
+    <h3 class="card-header" style="text-align: center;">Forgot Password</h3>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Enter your email to get reset password link"/>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Must be a valid email address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <a routerLink="../login" class="btn btn-primary btn-block mt-10" style="background-color: #f37038; border-radius: 0px; border: 0px;">Send</a>
+                <a routerLink="../login" class="btn btn-primary btn-block mt-10" style="background-color: #117a8b; border-radius: 0px; border: 0px;">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
